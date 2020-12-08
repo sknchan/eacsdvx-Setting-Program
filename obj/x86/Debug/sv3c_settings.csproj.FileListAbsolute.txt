@@ -1,0 +1,16 @@
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\KeySettingWindow.baml
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\MainWindow.g.cs
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\KeySettingWindow.g.cs
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\App.g.cs
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\sv3c_settings_MarkupCompile.cache
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\sv3c_settings_MarkupCompile.lref
+C:\Users\konac\Desktop\asdf\bin\Debug\sv3c_settings.exe
+C:\Users\konac\Desktop\asdf\bin\Debug\sv3c_settings.pdb
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\MainWindow.baml
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\sv3c_settings.g.resources
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\Setting.Properties.Resources.resources
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\sv3c_settings.csproj.GenerateResource.cache
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\sv3c_settings.csproj.CoreCompileInputs.cache
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\sv3c_settings.exe
+C:\Users\konac\Desktop\asdf\obj\x86\Debug\sv3c_settings.pdb

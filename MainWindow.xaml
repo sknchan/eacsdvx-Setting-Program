@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="Setting.MainWindow" Title="SOUND VOLTEX III GRAVITY WARS Settings" SizeToContent="Height" Width="600" ResizeMode="NoResize" Icon="/Resources/Setting.ico" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Setting" Closing="Window_Closing" Loaded="Window_Loaded">
+  <Window.Resources>
+    <local:EnumRadioConverter x:Key="enumRadioConverter" />
+  </Window.Resources>
+  <Grid>
+    <StackPanel>
+      <TabControl MinHeight="600">
+        <TabItem Header="描画設定">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="AUTO" />
+              <RowDefinition Height="AUTO" />
+              <RowDefinition Height="AUTO" />
+              <RowDefinition Height="AUTO" />
+              <RowDefinition Height="AUTO" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="AUTO" />
+              <ColumnDefinition Width="AUTO" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="ウインドウ設定" VerticalAlignment="Center" Margin="5" />
+            <WrapPanel Grid.Row="0" Grid.Column="1">
+              <ComboBox Name="WindowSettingsCombobBox" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Width="150" ItemsSource="{Binding ItemSource}" SelectedIndex="{Binding SelectedIndex}" SelectionChanged="WindowSettingsComboBox_SelectionChanged" />
+              <Label Name="WindowSettingsInfo" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Content="{Binding ItemInfo}" />
+            </WrapPanel>
+            <Label Grid.Row="1" Grid.Column="0" Content="表示ディスプレイ" VerticalAlignment="Center" Margin="5" />
+            <Grid Name="DisplaySettingsRadioButton" Grid.Row="1" Grid.Column="1">
+              <WrapPanel Margin="5">
+                <RadioButton Content="ディスプレイ１" VerticalAlignment="Center" Margin="5" IsChecked="{Binding SelectedIndex, ConverterParameter=Display1, Converter={StaticResource enumRadioConverter}}" Checked="DisplaySettingsRadioButton_Checked">
+                  <RadioButton.Style>
+                    <Style TargetType="{x:Type RadioButton}">
+                      <Style.Triggers>
+                        <DataTrigger Binding="{Binding Display1IsEnable}" Value="false">
+                          <Setter Property="Control.Foreground" Value="#FFA9A9A9" />
+                          <Setter Property="UIElement.IsEnabled" Value="False" />
+                        </DataTrigger>
+                      </Style.Triggers>
+                    </Style>
+                  </RadioButton.Style>
+                </RadioButton>
+                <RadioButton Content="ディスプレイ２" VerticalAlignment="Center" Margin="5" IsChecked="{Binding SelectedIndex, ConverterParameter=Display2, Converter={StaticResource enumRadioConverter}}" Checked="DisplaySettingsRadioButton_Checked">
+                  <RadioButton.Style>
+                    <Style TargetType="{x:Type RadioButton}">
+                      <Style.Triggers>
+                        <DataTrigger Binding="{Binding Display2IsEnable}" Value="false">
+                          <Setter Property="Control.Foreground" Value="#FFA9A9A9" />
+                          <Setter Property="UIElement.IsEnabled" Value="False" />
+                        </DataTrigger>
+                      </Style.Triggers>
+                    </Style>
+                  </RadioButton.Style>
+                </RadioButton>
+              </WrapPanel>
+            </Grid>
+            <Label Grid.Row="3" Grid.Column="0" Content="ゲーム画面の向き" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" />
+            <Grid Name="DisplayRotationRadioButton" Grid.Row="3" Grid.Column="1">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="AUTO" />
+                <ColumnDefinition Width="AUTO" />
+              </Grid.ColumnDefinitions>
+              <WrapPanel Grid.Row="0" Grid.Column="1" Margin="5">
+                <RadioButton VerticalAlignment="Center" Margin="5,0,10,0" IsChecked="{Binding SelectedIndex, ConverterParameter=monitor_T, Converter={StaticResource enumRadioConverter}}" Checked="DisplayRotationRadioButton_Checked">
+                  <Image Source="Resources/monitor_T.bmp" Width="160" />
+                </RadioButton>
+                <RadioButton VerticalAlignment="Center" Margin="10,0,10,0" IsChecked="{Binding SelectedIndex, ConverterParameter=monitor_B, Converter={StaticResource enumRadioConverter}}" Checked="DisplayRotationRadioButton_Checked">
+                  <Image Source="Resources/monitor_B.bmp" Width="160" />
+                </RadioButton>
+              </WrapPanel>
+              <WrapPanel Grid.Row="1" Grid.Column="1" Margin="5">
+                <RadioButton VerticalAlignment="Center" Margin="5,0,10,0" IsChecked="{Binding SelectedIndex, ConverterParameter=monitor_R, Converter={StaticResource enumRadioConverter}}" Checked="DisplayRotationRadioButton_Checked">
+                  <Image Source="Resources/monitor_R.bmp" Width="160" />
+                </RadioButton>
+                <RadioButton VerticalAlignment="Center" Margin="10,0,10,0" IsChecked="{Binding SelectedIndex, ConverterParameter=monitor_L, Converter={StaticResource enumRadioConverter}}" Checked="DisplayRotationRadioButton_Checked">
+                  <Image Source="Resources/monitor_L.bmp" Width="160" />
+                </RadioButton>
+              </WrapPanel>
+            </Grid>
+            <Label Grid.Row="4" Grid.Column="0" Content="解像度" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" />
+            <ComboBox Name="DisplayResolutionComboBox" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Width="150" SelectedIndex="{Binding SelectedIndex, UpdateSourceTrigger=Explicit}" ItemsSource="{Binding ItemSource}" SelectionChanged="DisplayResolutionComboBox_SelectionChanged" />
+          </Grid>
+        </TabItem>
+        <TabItem Header="キーコンフィグ">
+          <StackPanel>
+            <WrapPanel Margin="5">
+              <Button Width="120" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Content="一括設定" Click="SettingButton_Click" />
+              <Button Width="120" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Content="デフォルトに戻す" Click="DefaultButton_Click" />
+            </WrapPanel>
+            <DataGrid Name="keyConfigGrid" Margin="5" AutoGenerateColumns="False" CanUserSortColumns="False" IsReadOnly="True" CanUserResizeColumns="False" SelectionChanged="keyConfigGrid_SelectionChanged" MouseLeftButtonDown="keyConfigGrid_MouseLeftButtonDown" LostFocus="keyConfigGrid_LostFocus">
+              <DataGrid.Columns>
+                <DataGridTextColumn Header="ボタン" Width="*" Binding="{Binding button}" />
+                <DataGridTextColumn Header="キー割り当て１" Width="*" Binding="{Binding key1str}">
+                  <DataGridTextColumn.CellStyle>
+                    <Style TargetType="{x:Type DataGridCell}">
+                      <Style.Triggers>
+                        <DataTrigger Binding="{Binding key1State}" Value="false">
+                          <Setter Property="Control.Background" Value="#FFA9A9A9" />
+                        </DataTrigger>
+                      </Style.Triggers>
+                    </Style>
+                  </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="キー割り当て２" Width="*" Binding="{Binding key2str}">
+                  <DataGridTextColumn.CellStyle>
+                    <Style TargetType="{x:Type DataGridCell}">
+                      <Style.Triggers>
+                        <DataTrigger Binding="{Binding key2State}" Value="false">
+                          <Setter Property="Control.Background" Value="#FFA9A9A9" />
+                        </DataTrigger>
+                      </Style.Triggers>
+                    </Style>
+                  </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+              </DataGrid.Columns>
+            </DataGrid>
+            <Image Name="keyConfigImage" Source="Resources/panel_base.bmp" Width="461" />
+          </StackPanel>
+        </TabItem>
+      </TabControl>
+      <WrapPanel Margin="10,5" VerticalAlignment="Bottom">
+        <Label Content="Copyright (C)2018 Konami Amusement" Height="29" RenderTransformOrigin="0.575,-1.154" HorizontalAlignment="Right" Width="294" />
+        <Button Width="120" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" Content="保存" Click="SaveButton_Click" />
+        <Button Width="120" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" Content="終了" Click="FinishButton_Click" />
+      </WrapPanel>
+    </StackPanel>
+  </Grid>
+</Window>
